@@ -1,0 +1,75 @@
+﻿<Window x:Class="RecipeApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Recipe Application" Height="600" Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Panel -->
+        <StackPanel Grid.Column="0" Background="DarkBlue" VerticalAlignment="Top" Margin="10" Height="Auto">
+            <TextBlock Text="Recipe Application" Foreground="Gold" FontWeight="Bold" FontSize="16" Margin="20,10,0,20"/>
+            <Button x:Name="AddRecipeButton" Content="Add Recipe" Background="Green" Foreground="Yellow" Height="40" Margin="0,0,0,10" Click="AddRecipeButton_Click"/>
+            <Button x:Name="DisplayRecipeButton" Content="Display Recipe" Background="Gray" Foreground="Orange" Height="40" Margin="0,0,0,10" Click="DisplayRecipeButton_Click"/>
+            <Button x:Name="SearchRecipeButton" Content="Search Recipe" Background="Blue" Foreground="White" Height="40" Margin="0,0,0,10" Click="SearchRecipeButton_Click"/>
+            <StackPanel>
+                <Button x:Name="ScaleRecipeButtonHalf" Content="Scale 0.5x" Background="Yellow" Foreground="Green" Height="40" Margin="0,0,0,10" Click="ScaleRecipe_Click" Tag="0.5"/>
+                <Button x:Name="ScaleRecipeButtonDouble" Content="Scale 2x" Background="Yellow" Foreground="Green" Height="40" Margin="0,0,0,10" Click="ScaleRecipe_Click" Tag="2"/>
+                <Button x:Name="ScaleRecipeButtonTriple" Content="Scale 3x" Background="Yellow" Foreground="Green" Height="40" Margin="0,0,0,10" Click="ScaleRecipe_Click" Tag="3"/>
+            </StackPanel>
+            <Button x:Name="ResetQuantitiesButton" Content="Reset Quantities" Background="Purple" Foreground="White" Height="40" Margin="0,0,0,10" Click="ResetQuantities_Click"/>
+            <Button x:Name="ClearAllButton" Content="Clear All" Background="Purple" Foreground="White" Height="40" Margin="0,0,0,10" Click="ClearAll_Click"/>
+            <Button x:Name="ExitApplicationButton" Content="Exit Application" Background="Red" Foreground="Yellow" Height="40" Margin="0,0,0,10" Click="ExitApplicationButton_Click"/>
+        </StackPanel>
+
+        <!-- Right Panel -->
+        <Grid Grid.Column="1" Background="LightBlue" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Add Recipe Details Form -->
+            <StackPanel x:Name="AddRecipePanel" Visibility="Collapsed" Margin="10">
+                <TextBlock Text="Add Recipe Details here" FontWeight="Bold" FontSize="16" Margin="0,0,0,20"/>
+                <StackPanel Orientation="Horizontal" Margin="0,10">
+                    <TextBlock Text="Recipe Name:" VerticalAlignment="Center" Width="100"/>
+                    <TextBox x:Name="RecipeNameTextBox" Width="200" Margin="0,0,10,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10">
+                    <TextBlock Text="Number of Ingredients:" VerticalAlignment="Center" Width="150"/>
+                    <TextBox x:Name="IngredientsCountTextBox" Width="50" Margin="0,0,10,0"/>
+                    <Button Content="Generate Input Fields" Click="GenerateIngredientFields_Click"/>
+                </StackPanel>
+                <StackPanel x:Name="IngredientsPanel" Margin="0,10"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10">
+                    <TextBlock Text="Number of Steps:" VerticalAlignment="Center" Width="150"/>
+                    <TextBox x:Name="StepsCountTextBox" Width="50" Margin="0,0,10,0"/>
+                    <Button Content="Generate Input Fields" Click="GenerateStepFields_Click"/>
+                </StackPanel>
+                <StackPanel x:Name="StepsPanel" Margin="0,10"/>
+                <Button Content="SAVE" Click="SaveRecipe_Click" Background="White"/>
+            </StackPanel>
+
+            <!-- Recipe Display Panel -->
+            <StackPanel x:Name="DisplayPanel" Visibility="Collapsed" Margin="10">
+                <ListBox x:Name="RecipeListBox" SelectionChanged="RecipeListBox_SelectionChanged" Margin="10"/>
+                <TextBlock x:Name="RecipeOutputTextBlock" Text="" Margin="10"/>
+                <TextBlock x:Name="TotalCaloriesTextBlock" Text="" Margin="10"/>
+            </StackPanel>
+
+            <!-- Search Panel -->
+            <StackPanel x:Name="SearchPanel" Visibility="Collapsed" Margin="10">
+                <TextBox x:Name="SearchTextBox" Width="200" Margin="0,0,10,0"/>
+                <Button Content="Search" Click="SearchButton_Click"/>
+                <ListBox x:Name="SearchResultsListBox" SelectionChanged="RecipeListBox_SelectionChanged" Margin="10"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
