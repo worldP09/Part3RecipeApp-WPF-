@@ -37,6 +37,6 @@ Notes
 Data Persistence: Recipes are stored in memory during the session. Restarting the application will clear all data.
 Enhancements: This application may receive updates and feature enhancements based on user feedback.
 Support
-For any issues or questions, please contact our support team at support@recipeapp.com.
+For any issues or questions, please contact our support team at enzokuhle091355@gmail.com / St10381447@rcconnect.edu.za
 
 
